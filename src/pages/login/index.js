@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addProd } from '../../store/list';
+import { auth } from '../../store/login';
 import { useHistory } from "react-router-dom";
 
 export default function LoginComponent() {
-  const [form, setForm] = useState({ login: '', password: '' });
+  const [form, setForm] = useState({ user: '', password: '' });
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -14,8 +14,8 @@ export default function LoginComponent() {
 
   function submitForm(e) {
     e.preventDefault();
-    dispatch(addProd(form));
-    setForm({ login: '', password: '' });
+    dispatch(auth(form));
+    setForm({ user: '', password: '' });
     history.push('/lobby');
   }
   return (
@@ -28,7 +28,7 @@ export default function LoginComponent() {
         <div style={{ backgroundColor: '#fff', width: 400, height: 200, borderRadius: 10, alignItems: 'center' }}>
           <form style={{ padding: 10 }} onSubmit={submitForm}>
             <div style={{ marginBottom: 5, border: 0, borderBottomWidth: 1, borderBottomColor: '#cdc', display: 'flex', flexDirection: 'column' }}>
-              <input type='text' name='login' value={form.login} onChange={formChange} key='name' placeholder='Usuário ' style={{}} />
+              <input type='text' name='user' value={form.user} onChange={formChange} key='name' placeholder='Usuário ' style={{}} />
               <input type='password' name='password' value={form.password} onChange={formChange} key='password' placeholder='Senha' />
               <input type='submit' value='Salvar' />
             </div>

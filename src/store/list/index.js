@@ -1,66 +1,29 @@
-import axios from 'axios';
+import { listarPorduto, inserirProduto } from '../../services/list-prod-service';
 const INIT = [
     {
         codBar: "1234567890",
-        countRegister: "40",
-        describe: "Teclado Mecânico - Razer",
-        money: "800,00",
-        nameProd: "Teclado",
+        quantEstoque: "40",
+        descricao: "Teclado Mecânico - Razer",
+        valor: "800,00",
+        nome: "Teclado",
     },
     {
         codBar: "1234567890",
-        countRegister: "40",
-        describe: "Teclado Mecânico - Razer",
-        money: "800,00",
-        nameProd: "Teclado",
+        quantEstoque: "40",
+        descricao: "Teclado Mecânico - Razer",
+        valor: "800,00",
+        nome: "Teclado",
     },
-    {
-        codBar: "1234567890",
-        countRegister: "40",
-        describe: "Teclado Mecânico - Razer",
-        money: "800,00",
-        nameProd: "Teclado",
-    },
-    {
-        codBar: "1234567890",
-        countRegister: "40",
-        describe: "Teclado Mecânico - Razer",
-        money: "800,00",
-        nameProd: "Teclado",
-    },
-    {
-        codBar: "1234567890",
-        countRegister: "40",
-        describe: "Teclado Mecânico - Razer",
-        money: "800,00",
-        nameProd: "Teclado",
-    },
-    {
-        codBar: "1234567890",
-        countRegister: "40",
-        describe: "Teclado Mecânico - Razer",
-        money: "800,00",
-        nameProd: "Teclado",
-    },
-    {
-        codBar: "1234567890",
-        countRegister: "40",
-        describe: "Teclado Mecânico - Razer",
-        money: "800,00",
-        nameProd: "Teclado",
-    }];
+];
 
 export default function list(state = INIT, action) {
-    // var teste = await axios.post('https://reqres.in/api/register', {
-    //     "email": "eve.holt@reqres.in",
-    //     "password": "pistol"
-    // });
-    //service fom funcao async retornando o objeto
+    let _state = listarPorduto();
     switch (action.type) {
         case 'ADD_PROD':
-            return [...state, action.prod];
+            let result = inserirProduto(action.prod);
+            return [...state, result];
         default:
-            return state;
+            return [...state, _state];
     }
 
 }

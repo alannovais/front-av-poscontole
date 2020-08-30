@@ -29,19 +29,25 @@ export default ({ children }) => {
     } else {
         return (
             <Fragment>
-                <div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+                <div style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-around', backgroundColor: '#ccc' }}>
                     <div style={{ justifyContent: 'flex-start' }}>
-                        <p>Oi, Usuário</p>
+                        <h2 style={{ color: '#851d86' }}>Oi, Usuário</h2>
                     </div>
                     <div style={{ justifyContent: 'flex-end' }}>
                         <div style={{ justifyContent: 'space-between' }}>
-                            <button onClick={toCadastro} style={{ backgroundColor: location.pathname === '/createitem' ? 'red' : '#ccc', borderWidth: 0, borderRadius: 10, color: '#fff' }}>
+                            <button onClick={toCadastro} style={
+                                { backgroundColor: location.pathname === '/createitem' ? '#851d86' : '#ccc',
+                                 borderWidth: 0, borderRadius: 10,
+                                 color: location.pathname === '/createitem' ? '#fff': '#000', width: 100, height: 40  }}>
                                 cadastro
                              </button>
-                            <button onClick={toCatalogo} style={{ backgroundColor: location.pathname === '/lobby' ? 'red' : '#ccc', borderWidth: 0, borderRadius: 10 }}>
+                            <button onClick={toCatalogo} style={
+                                { backgroundColor: location.pathname === '/lobby' ? '#851d86' : '#ccc',
+                                 borderWidth: 0, borderRadius: 10,
+                                 color: location.pathname === '/lobby' ? '#fff' : '#000', width: 100, height: 40 }}>
                                 catálogo
                             </button>
-                            <button onClick={loggout} style={{ borderWidth: 0, borderRadius: 10 }}>
+                            <button onClick={loggout} style={{ borderWidth: 0, borderRadius: 10, width: 100, height: 40, backgroundColor: '#ccc' }}>
                                 sair
                             </button>
                         </div>
